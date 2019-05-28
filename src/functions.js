@@ -68,5 +68,23 @@ Sudoku.prototype.getColumns = function(){
   }
   return cols;
 };
-//create columns
+
 //create boxes
+Sudoku.prototype.getBoxes = function(){
+  var squares = [];
+  var square = [];
+  this.fillBoard();
+  // var counter = 1;
+
+  for(var i = 0; i < 9; i++){
+    for(var j = 0; j < 21; j += 6){
+      for(var x = j; x < 3; x++){
+        square.push(this.board[x]);
+        // counter++;
+      }
+      squares.push(square);
+      square = [];
+    }
+  }
+  return squares;
+};
