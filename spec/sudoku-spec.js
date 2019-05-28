@@ -23,12 +23,23 @@ describe('Sudoku', function() {
   });
 
   it('will populate the board', function() {
-    
+    sudoku.fillBoard();
+    expect(sudoku.board.length).toEqual(81);
   });
 
-  // it('will build rows of the board', function() {
-
-  // });
+  it('will build rows of the board', function() {
+    var rows = sudoku.getRows();
+    expect(sudoku.isValidArray(rows[1])).toEqual(true);
+    expect(sudoku.isValidArray(rows[2])).toEqual(true);
+    expect(sudoku.isValidArray(rows[3])).toEqual(true);
+    expect(sudoku.isValidArray(rows[4])).toEqual(true);
+  });
+  
+  it('will build columns of the board', function() {
+    var columns = sudoku.getColumns();
+    console.log(columns);
+    expect(sudoku.isValidArray(columns[4])).toEqual(false);
+  });
 
   // it('will build 3x3 boxesof the board', function() {
 
