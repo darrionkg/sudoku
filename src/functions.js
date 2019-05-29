@@ -76,14 +76,16 @@ Sudoku.prototype.getBoxes = function(){
   this.fillBoard();
   // var counter = 1;
 
-  for(var i = 0; i < 9; i++){
-    for(var j = 0; j < 21; j += 6){
-      for(var x = j; x < 3; x++){
-        square.push(this.board[x]);
-        // counter++;
-      }
-      squares.push(square);
-      square = [];
+  for(var j = 0; j< 81; j += 3){
+    for(var i = j; i < 3; i++) {
+      square.push(this.board[j]);
+      square.push(this.board[j+9]);
+      square.push(this.board[j+18]);
+    }
+    squares.push(square);
+    square = [];
+    if(j % 27 == 0){
+      j+=27;
     }
   }
   return squares;

@@ -37,12 +37,14 @@ describe('Sudoku', function() {
   
   it('will build columns of the board', function() {
     var columns = sudoku.getColumns();
-    console.log(columns);
+    // console.log(columns);
     expect(sudoku.isValidArray(columns[4])).toEqual(false);
   });
 
-  // it('will build 3x3 boxesof the board', function() {
-
-  // });
+  it('will build 3x3 boxesof the board', function() {
+    var boxes = sudoku.getBoxes();
+    console.log(boxes);
+    expect(sudoku.isValidArray(boxes[2])).toEqual(false);
+  });
 });
 
